@@ -1,3 +1,24 @@
 $option-color: #38AEF0;
 $chat-screen-color: #fafafa;
 $text-color: #FFFFFF;
+$groups-color: #2f3e51;
+
+@mixin group-box($class){
+
+    .#{$class}{
+        padding: 20px 0 20px 20px;
+
+        &__group-name{
+            font-size: 15px;
+            font-weight: bold;
+            color: $text-color;
+            padding-bottom: 5px;
+        }
+
+        &__latest-message{
+            font-size: 11px;
+            font-weight: bold;
+            color: $text-color;
+        }
+    }
+}

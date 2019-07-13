@@ -1,12 +1,11 @@
 
-
 .header{
     height: 25px;
     width: 100%;
     background-color: $option-color;
 
     &__text{
-    color: white;
+    color:   $text-color;
     text-align: center;
     }
 }
@@ -14,13 +13,12 @@
 .contents{
     height: calc(100vh - 25px);
     width:  100%;
-    border: solid #008080;
 
     .left-content{
         float: left;
         height: 100%;
         width:  300px;
-        background-color: #2f3e51;
+        background-color: $groups-color;
         position: relative;
 
         .side-header{
@@ -61,12 +59,23 @@
                     .fa{
                         color: $text-color;
                     }
-                    }
                 }
             }
         }
-    }
 
+        .groups{
+            height: calc(100% - 100px);
+            width:  300px;
+            background-color: $groups-color;
+            margin-top: 100px;
+
+            @include group-box('group1');
+            @include group-box('group2');
+            @include group-box('group3');
+
+        }
+    }
+}
 
 
     .right-content{
