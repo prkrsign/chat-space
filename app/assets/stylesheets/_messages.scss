@@ -15,4 +15,19 @@ $chat-screen-color: #fafafa;
 .contents{
     height: calc(100vh - 25px);
     width:  100%;
+    border: solid #008080;
+    &__left-content{
+        float: left;
+        height: 100%;
+        width:  300px;
+        background-color: #2f3e51;
+    }
+
+    &__right-content{
+        float: right;
+        height: 100%;
+        width:  calc(100vw - 300px);
+        background-color: #fafafa;
+    }
+
 }
