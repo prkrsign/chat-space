@@ -1,9 +1,18 @@
 $option-color: #38AEF0;
+$chat-screen-color: #fafafa;
 
 .header{
     height: 25px;
     width: 100%;
     background-color: $option-color;
+
+    &__text{
     color: white;
     text-align: center;
+    }
+}
+
+.contents{
+    height: calc(100vh - 25px);
+    width:  100%;
 }
