@@ -16,14 +16,36 @@ $chat-screen-color: #fafafa;
     height: calc(100vh - 25px);
     width:  100%;
     border: solid #008080;
-    &__left-content{
+
+    .left-content{
         float: left;
         height: 100%;
         width:  300px;
         background-color: #2f3e51;
+        position: relative;
+
+        .side-header{
+            height: 100px;
+            width:  300px;
+            background-color: #253141;
+            position: absolute;
+
+            &__box{
+                margin: 40px 20px;
+                display: inline-block;
+                
+                &--user-name{
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: #FFFFFF;
+                }
+            }
+        }
     }
 
-    &__right-content{
+
+
+    .right-content{
         float: right;
         height: 100%;
         width:  calc(100vw - 300px);
