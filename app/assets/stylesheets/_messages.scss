@@ -1,5 +1,6 @@
 $option-color: #38AEF0;
 $chat-screen-color: #fafafa;
+$text-color: #FFFFFF;
 
 .header{
     height: 25px;
@@ -31,13 +32,38 @@ $chat-screen-color: #fafafa;
             position: absolute;
 
             &__box{
-                margin: 40px 20px;
+                height: 100px;
+                width:  300px;
                 display: inline-block;
                 
-                &--user-name{
+                &__user-name{
+                    float:  left;
                     font-size: 16px;
                     font-weight: bold;
-                    color: #FFFFFF;
+                    color:  $text-color;
+                    line-height: 100px;
+                    padding-left: 20px;
+                }
+
+                &__menu{
+                    float:  right;
+                    padding-top:   40px;
+                    padding-right: 20px;
+
+                    &__new-group{
+                        margin-right: 3px;
+                        float: left;
+                    }
+                    
+                    &__edit-user{
+                        margin-left: 3px;
+                        float: right;
+                    }
+                    
+                    .fa{
+                        color: $text-color;
+                    }
+                    }
                 }
             }
         }
@@ -52,4 +78,3 @@ $chat-screen-color: #fafafa;
         background-color: #fafafa;
     }
 
-}
