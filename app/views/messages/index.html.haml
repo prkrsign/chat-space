@@ -38,3 +38,23 @@
 
 
     .right-content
+        .main-header
+            .main-header__left-box
+                %h2.main-header__left-box__current-group
+                    test-group
+                    
+                %ul.main-header__left-box__member-list
+                    Member : 
+
+                    %li.main-header__left-box__member-list__member
+                        ABC
+
+                    %li.main-header__left-box__member-list__member
+                        DEF
+
+                    %li.main-header__left-box__member-list__member
+                        GHI
+
+            =link_to 'groups/edit', class:"main-header__edit-btn" do
+                Edit
+                

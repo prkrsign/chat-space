@@ -72,10 +72,9 @@
             @include group-box('group1');
             @include group-box('group2');
             @include group-box('group3');
-
         }
     }
-}
+
 
 
     .right-content{
@@ -83,5 +82,49 @@
         height: 100%;
         width:  calc(100vw - 300px);
         background-color: #fafafa;
+
+        .main-header{
+            height: 100px;
+            width:  100%;
+            border-bottom: solid #eeeeee;
+
+            &__left-box{
+                padding: 35px 0 0 40px;
+                float: left;
+
+                &__current-group{
+                    font-size: 20px;
+                    color: #333333;
+                    padding-bottom: 15px;
+                }
+
+                &__member-list{
+                    font-size: 12px;
+                    color: #999999;
+
+                    &__member{
+                        display: inline-block;
+                    }
+                }
+            }
+        
+            &__edit-btn{
+                height: 40px;
+                text-align: center;
+                font-size: 20px;
+                color: $option-color;
+                border: 1px solid $option-color;
+                margin: 28px 40px 0  0;
+                padding: 0 20px;
+                float: right;
+                line-height: 40px;
+                text-decoration: none;
+                a:link { color:   $option-color; text-decoration:none }
+                a:visited { color:$option-color; text-decoration:none }
+                a:hover { color:  $option-color; text-decoration:none }
+                a:active { color: $option-color; text-decoration:none }
+            }
+        }
     }
+}
 
