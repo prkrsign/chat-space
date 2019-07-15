@@ -12,9 +12,8 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/vendor/bundle/*
 
 # Ignore Byebug command history file.
 .byebug_history
 public/uploads/*
-
-/vendor/bundle/*
