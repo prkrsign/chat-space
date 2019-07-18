@@ -76,9 +76,25 @@ body {
             background-color: $groups-color;
             margin-top: 100px;
 
-            @include group-box('group1');
-            @include group-box('group2');
-            @include group-box('group3');
+            .group{
+                padding: 0 0 0 20px;
+
+        
+                .group__name{
+                    font-size: 15px;
+                    font-weight: bold;
+                    color: $text-color;
+                    padding-top: 20px;
+                    padding-bottom: 5px;
+                }
+        
+                .group__message{
+                    font-size: 11px;
+                    font-weight: bold;
+                    color: $text-color;
+                    padding-bottom: 40px;
+                }
+            }
         }
     }
 
