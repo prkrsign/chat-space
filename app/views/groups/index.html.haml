@@ -87,7 +87,7 @@
             
 
         .form
-            = form_tag("/groups/messages", class:'new-message' , id:'new_message' ,  enctype: "multipart/form-data", method: :post )
+            = form_tag(root_path, class:'new-message' , id:'new_message' ,  enctype: "multipart/form-data", method: :GET )
 
             .input-box
                 = text_field_tag 'message[content]','', { placeholder:'type a message' , class: 'input-box__text' , id: 'message_content' , type: 'text' }
@@ -95,4 +95,4 @@
                     %i.fa.fa-image
                         %input{calss: 'image-label__input' , type: 'file' , name: 'message[image]' , id: 'message_image' , style:'display:none'}
 
-            %input{type: 'submit' , name: 'commit' , value: 'Send' ,  class: 'new-message__submit-btn' , 'data-disable-with': 'Send'}
+            %input{type: 'submit' , name: 'commit' , value: 'Send' ,  class: 'new-message__submit-btn' , 'data-disable-with': 'Send' ,action: :index}
