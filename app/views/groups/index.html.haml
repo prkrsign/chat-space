@@ -1,30 +1,36 @@
-.header
-    .header__text
+= render partial: 'index'
+
+-# .header
+-#     .header__text
 
 
-.contents
-    .left-content
-        .side-header
-            .side-header__box
-                %p.side-header__box__user-name
-                    = current_user.name
-                %ul.side-header__box__menu
-                    %li.side-header__box__menu__new-group
-                        =link_to new_group_path  do
-                            =fa_icon 'edit'
+-# .contents
+-#     .left-content
+-#         .side-header
+-#             .side-header__box
+-#                 %p.side-header__box__user-name
+-#                     = current_user.name
+-#                 %ul.side-header__box__menu
+-#                     %li.side-header__box__menu__new-group
+-#                         =link_to new_group_path  do
+-#                             =fa_icon 'edit'
 
-                    %li.side-header__box__menu__edit-user
-                        =link_to edit_user_path(current_user)  do
-                            =fa_icon 'cog'
+-#                     %li.side-header__box__menu__edit-user
+-#                         =link_to edit_user_path(current_user)  do
+-#                             =fa_icon 'cog'
             
-        .groups
-            .group
-                - current_user.groups.each do |group|
-                    = link_to group_messages_path(group) do
-                        .group__name
-                            = group.name
-                        .group__message
-                            メッセージはまだありません。
+-#         .groups
+-#             .group
+-#                 - current_user.groups.each do |group|
+-#                     = link_to group_messages_path(group) do
+-#                         .group__name
+-#                             = group.name
+-#                         .group__message
+-#                             メッセージはまだありません。
+
+
+
+
             -#     %p.group1__group-name                    
             -#         test-group
             -#     %p.group1__latest-message
@@ -43,56 +49,3 @@
             -#         まだメッセージがありません
 
 
-    .right-content
-        .main-header
-            .main-header__left-box
-                %h2.main-header__left-box__current-group
-                    test-group
-                    
-                %ul.main-header__left-box__member-list
-                    Member : 
-
-                    %li.main-header__left-box__member-list__member
-                        ABC
-
-                    %li.main-header__left-box__member-list__member
-                        DEF
-
-                    %li.main-header__left-box__member-list__member
-                        GHI
-
-            = link_to edit_group_path(current_user.id) , class:"main-header__edit-btn" do
-                Edit
-
-        .messages
-            .message1
-                .upper-info
-                    %p.upper-info__user
-                        test-user
-                    %p.upper-info__date
-                        2019/7/14(Sun) 12:26:46
-
-                %p.message1__text
-                    こんにちは！
-            
-            .message2
-                .upper-info
-                    %p.upper-info__user
-                        test-user
-                    %p.upper-info__date
-                        2019/7/15(Sun) 12:26:46
-                
-                %p.message2__text
-                    さようなら！
-            
-
-        .form
-            = form_tag("/groups/messages", class:'new-message' , id:'new_message' ,  enctype: "multipart/form-data", method: :post )
-
-            .input-box
-                = text_field_tag 'message[content]','', { placeholder:'type a message' , class: 'input-box__text' , id: 'message_content' , type: 'text' }
-                %label.image-label{:for => "message_image"} 
-                    %i.fa.fa-image
-                        %input{calss: 'image-label__input' , type: 'file' , name: 'message[image]' , id: 'message_image' , style:'display:none'}
-
-            %input{type: 'submit' , name: 'commit' , value: 'Send' ,  class: 'new-message__submit-btn' , 'data-disable-with': 'Send'}
