@@ -156,8 +156,7 @@ body {
             height: calc(100% - 193px);
             padding: 46px 40px;
 
-            @include message-box('message1');
-            @include message-box('message2');
+            @include message-box('message');
         }
 
         .form{

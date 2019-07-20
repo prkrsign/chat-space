@@ -49,25 +49,17 @@
 
 
         .messages
-            .message1
-                .upper-info
-                    %p.upper-info__user
-                        test-user
-                    %p.upper-info__date
-                        2019/7/14(Sun) 12:26:46
+            = render partial: 'message', collection: @messages
+            -# .message
+            -#     .upper-info
+            -#         %p.upper-info__user
+            -#             = @messages.user.name
+            -#         %p.upper-info__date
+            -#             ああああ
 
-                %p.message1__text
-                    こんにちは！
-            
-            .message2
-                .upper-info
-                    %p.upper-info__user
-                        test-user
-                    %p.upper-info__date
-                        2019/7/15(Sun) 12:26:46
-                
-                %p.message2__text
-                    さようなら！
+
+            -#     %p.message1__text
+            -#         こんにちは！
 
 
         .form

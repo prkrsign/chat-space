@@ -47,5 +47,11 @@ $translucent-text-color: #999999;
                 left: 90px;
             }
         }
+
+        .lower-info{
+            &__content{
+                font-weight: 100;
+            }
+        }
     }
 }
