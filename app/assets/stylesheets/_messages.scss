@@ -168,18 +168,25 @@ body {
             box-sizing: border-box;
             position: relative;
 
+            .field_with_errors {
+                height: 100%;
+                width:  100%;
+                font-weight: 400;
+            }
+
             .new_message{
                 background-color: #E0E0E0;
                 width: 100%;
                 height: 100%;
-                
+
                 input[type='text']{
                     box-sizing: border-box;
-                    width:  calc(100% - 115px);
+                    width:  calc(100% - 110px);
                     height: 100%;
                     border:solid 0px;
                     z-index: 10;
                     padding-left: 10px;
+                }
             }
 
             .form__mask{
@@ -188,30 +195,30 @@ body {
                 width : 21.44px;
                 right: 170px;
                 bottom: 40px;
-                
+
                 .form__mask__image{
                     font-size: 20px;
                     cursor: pointer;
                     cursor: hand;
-                    }
+                }
             }
-        }
 
+            .form__submit{
+                background-color: $option-color;
+                width:  100px;
+                height: 50px;
+                color: $text-color;
+                cursor: pointer;
+                cursor: hand;
+                position: absolute;
+                right: 25px;
+                top:   20px;
 
-
-        .form__submit{
-            background-color: $option-color;
-            width:  100px;
-            height: 50px;
-            float: right;
-            margin-left: 15px;
-            color: $text-color;
-            cursor: pointer;
-            cursor: hand;
             }
         }
     }
 }
+
 
 // .form__mask{
 //     box-sizing: border-box;
@@ -237,4 +244,4 @@ body {
 //         width: 100%;
 //         height: 100%;
 //         padding-left: 10px;
-// }
+// 
