@@ -24,25 +24,19 @@
                         .group__name
                             = group.name
                         .group__message
-                            メッセージはまだありません。
+                            = group.show_last_message
 
     .right-content
         .main-header
             .main-header__left-box
                 %h2.main-header__left-box__current-group
-                    test-group
+                    = @group.name
                     
                 %ul.main-header__left-box__member-list
                     Member : 
-
-                    %li.main-header__left-box__member-list__member
-                        ABC
-
-                    %li.main-header__left-box__member-list__member
-                        DEF
-
-                    %li.main-header__left-box__member-list__member
-                        GHI
+                    - @group.group_users.each do |group_user|
+                        %li.main-header__left-box__member-list__member
+                            = group_user.user.name
 
             = link_to edit_group_path(current_user.id) , class:"main-header__edit-btn" do
                 Edit
