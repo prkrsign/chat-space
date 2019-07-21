@@ -1,0 +1,21 @@
+= render partial: 'index'
+
+-#     .form
+-#         = form_for [@group,@message] do |f|
+-#             = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+-#             .form__mask
+-#                 = f.label :image, class: 'form__mask__image' do
+-#                     = fa_icon 'picture-o', class: 'icon'
+-#                     = f.file_field :image, class: 'hidden'
+-#             = f.submit 'Send', class: 'form__submit'
+
+-#     .form
+-#         = form_tag("/groups/messages", class:'new-message' , id:'new_message' ,  enctype: "multipart/form-data", method: :post )
+
+-#         .input-box
+-#             = text_field_tag 'message[content]','', { placeholder:'type a message' , class: 'input-box__text' , id: 'message_content' , type: 'text' }
+-#             %label.image-label{:for => "message_image"} 
+-#                 %i.fa.fa-image
+-#                     %input{calss: 'image-label__input' , type: 'file' , name: 'message[image]' , id: 'message_image' , style:'display:none'}
+
+-#         %input{type: 'submit' , name: 'commit' , value: 'Send' ,  class: 'new-message__submit-btn' , 'data-disable-with': 'Send'}

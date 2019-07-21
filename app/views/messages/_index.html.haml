@@ -1,0 +1,66 @@
+.header
+    .header__text
+
+
+.contents
+    .left-content
+        .side-header
+            .side-header__box
+                %p.side-header__box__user-name
+                    = current_user.name
+                %ul.side-header__box__menu
+                    %li.side-header__box__menu__new-group
+                        =link_to new_group_path  do
+                            =fa_icon 'edit'
+
+                    %li.side-header__box__menu__edit-user
+                        =link_to edit_user_path(current_user)  do
+                            =fa_icon 'cog'
+            
+        .groups
+            .group
+                - current_user.groups.each do |group|
+                    = link_to group_messages_path(group) do
+                        .group__name
+                            = group.name
+                        .group__message
+                            = group.show_last_message
+
+    .right-content
+        .main-header
+            .main-header__left-box
+                %h2.main-header__left-box__current-group
+                    = @group.name
+                    
+                %ul.main-header__left-box__member-list
+                    Member : 
+                    - @group.group_users.each do |group_user|
+                        %li.main-header__left-box__member-list__member
+                            = group_user.user.name
+
+            = link_to edit_group_path(current_user.id) , class:"main-header__edit-btn" do
+                Edit
+
+
+        .messages
+            = render partial: 'message', collection: @messages
+            -# .message
+            -#     .upper-info
+            -#         %p.upper-info__user
+            -#             = @messages.user.name
+            -#         %p.upper-info__date
+            -#             ああああ
+
+
+            -#     %p.message1__text
+            -#         こんにちは！
+
+
+        .form
+            = form_for [@group,@message] do |f|
+                = f.text_field :content, class: 'new__message', placeholder: 'type a message'
+                .form__mask
+                    = f.label :image, class: 'form__mask__image' do
+                        = fa_icon 'picture-o', class: 'icon'
+                        = f.file_field :image, class: 'hidden', style:'display:none'
+                = f.submit 'Send', class: 'form__submit'
