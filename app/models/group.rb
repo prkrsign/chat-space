@@ -12,7 +12,4 @@ class Group < ApplicationRecord
         end
     end
 
-    def show_member_name(group)
-        group 
-    end
 end
