@@ -26,8 +26,6 @@ $(document).on('turbolinks:load', function(){
       e.preventDefault();
       var message = new FormData(this);
       var url = $(this).attr('action')
-      console.log(url)
-      console.log(message)
       $.ajax({  
         url: url,
         type: 'POST',
@@ -41,8 +39,7 @@ $(document).on('turbolinks:load', function(){
         var html = buildHTML(data);
         $('.messages').append(html);
         $('#message_content').val(''); //input内のメッセージを消しています。
-        // $('.messages').removeAttr('disabled')
-
+        $('.form__submit').attr('disabled', false);
         $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
         return false
       })
