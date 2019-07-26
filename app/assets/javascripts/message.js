@@ -41,6 +41,10 @@ $(document).on('turbolinks:load', function(){
         var html = buildHTML(data);
         $('.messages').append(html);
         $('#message_content').val(''); //input内のメッセージを消しています。
+        // $('.messages').removeAttr('disabled')
+
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+        return false
       })
       .fail(function(data){
         alert('エラーが発生したためメッセージは送信できませんでした。');
