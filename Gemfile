@@ -62,7 +62,14 @@ gem 'devise'
 gem 'pry-rails'
 gem 'pry-byebug'
 gem 'pry-doc'
+gem 'mini_magick'
+gem 'carrierwave'
+
 
 group :test do
   gem 'faker'
 end
+
+bundle install
+
+rails g uploader image
