@@ -69,7 +69,3 @@ gem 'carrierwave'
 group :test do
   gem 'faker'
 end
-
-bundle install
-
-rails g uploader image
