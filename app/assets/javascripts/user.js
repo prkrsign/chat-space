@@ -1,8 +1,16 @@
 $(document).on('turbolinks:load', function(){
-    // function buildHTML(message) {
-    //     var name = message.content ? `${ message.content }` : "";
-    //     var img  = message.image ? `<img src= "${ message.image }">` : "";
-    //     var html = `<div class="message" data-id="${message.id}">;
+
+    var search_list = $("#user-search-result");
+
+    function appendUser(user){
+        var html = 
+                    `<div class="chat-group-user clearfix">
+                        <p class="chat-group-user__name">${user.name}</p>
+                        <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id=${user.id} data-user-name=${user.name}>追加</div>
+                    </div>`;
+                    search_list.append(html);
+    }
+
 
 
     $('#user-search-field').on('keyup', function(e){
@@ -16,12 +24,13 @@ $(document).on('turbolinks:load', function(){
             dataType: 'json'            // サーバから値を返す際はjsonである
         })
 
-        .done(function(users){
+        .done(function(users){                // usersにjson形式のuser変数が代入される。複数形なので配列型で入ってくる
             $('#user-search-result').empty();
             if (users.length !== 0 ){
                 users.forEach(function(user){
                     console.log(user)
-                })
+                    appendUser(user)
+                });
             }
         });
 
