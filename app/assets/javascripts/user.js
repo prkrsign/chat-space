@@ -19,8 +19,6 @@ $(document).on('turbolinks:load', function(){
                     search_list.append(html);
     }
 
-
-
     $('#user-search-field').on('keyup', function(e){
         var input = $("#user-search-field").val();
         console.log(input)
@@ -56,4 +54,11 @@ $(document).on('turbolinks:load', function(){
             alert('ユーザー検索に失敗しました');
         });
     });
+
+    $('.chat-group-form__field--right').on('click', function() {
+        console.log("押されたよ")
+    });
+
+
+    
 });
