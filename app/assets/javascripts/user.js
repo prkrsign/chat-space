@@ -15,6 +15,7 @@ $(document).on('turbolinks:load', function(){
 
     $('#user-search-field').on('keyup', function(e){
         var input = $("#user-search-field").val();
+
         console.log(input)
 
         $.ajax({
@@ -25,16 +26,21 @@ $(document).on('turbolinks:load', function(){
         })
 
         .done(function(users){                // usersにjson形式のuser変数が代入される。複数形なので配列型で入ってくる
-            $('#user-search-result').empty();
-            if (users.length !== 0 ){
+            
+            if (input.length === 0) {
+                $('#user-search-result').empty();
+              }
+
+            else if (users.length !== 0 ){
+                $('#user-search-result').empty();
                 users.forEach(function(user){
                     console.log(user)
                     appendUser(user)
                 });
             }
+        })
+        .fail(function() {
+            alert('ユーザー検索に失敗しました');
         });
-
-
-
     });
 });
