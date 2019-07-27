@@ -41,7 +41,7 @@ $(document).on('turbolinks:load', function(){
         $('#message_content').val('');
         $('.form__submit').attr('disabled', false);
         $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
-        $("input[type='file']").val("");
+        $('#new_message')[0].reset();
         return false
 
       })
