@@ -22,7 +22,7 @@ $(document).on('turbolinks:load', function(){
 
     function addUser(user_id , user_name){
         var html =
-                    `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
+                    `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${user_id}'>
                         <input name='group[user_ids][]' type='hidden' value=${user_id}>
                         <p class='chat-group-user__name'>${user_name}</p>
                         <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
@@ -32,7 +32,6 @@ $(document).on('turbolinks:load', function(){
 
     $('#user-search-field').on('keyup', function(e){
         var input = $("#user-search-field").val();
-        console.log(input)
 
         $.ajax({
             type: 'GET',                // HTTPメソッドはGETで
@@ -47,10 +46,9 @@ $(document).on('turbolinks:load', function(){
                 $('#user-search-result').empty();
               }
 
-            else if (users.length !== 0 ){
+            else if (input.length !== 0){
                 $('#user-search-result').empty();
                 users.forEach(function(user){
-                    console.log(user)
                     appendUser(user)
                 });
             }
@@ -70,8 +68,6 @@ $(document).on('turbolinks:load', function(){
         // .on(events , [selector]) 第二引数では子要素を指定することによりイベントデリゲートできる
           var user_id = $(this).data('user-id');
           var user_name = $(this).data('user-name');
-          console.log(user_id);
-          console.log(user_name);
           addUser(user_id , user_name);
           $(this).parent().remove();
     });    
