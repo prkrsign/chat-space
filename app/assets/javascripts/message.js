@@ -22,6 +22,7 @@ $(document).on('turbolinks:load', function(){
                   </div>`
     return html;
     }
+
     $('#new_message').on('submit', function(e){
       e.preventDefault();
       var message = new FormData(this);
@@ -33,20 +34,35 @@ $(document).on('turbolinks:load', function(){
         dataType: 'json',
         processData: false,
         contentType: false
-      })      
-      .done(function(data){
+      })
 
+      .done(function(data){
         var html = buildHTML(data);
         $('.messages').append(html);
         $('.form__submit').attr('disabled', false);
         $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
         $('#new_message')[0].reset();
         return false
-
       })
       .fail(function(data){
         alert('エラーが発生したためメッセージは送信できませんでした。');
         $('.form__submit').attr('disabled', false);
       })
     })
+
+    var reloadMessages = function(){
+      last_message_id = $('.messages:last').data('id');
+      $.ajax({
+        url: '/groups/:group_id/api/messages(@new_message)',
+        type: 'get',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+      .done(function(messages){
+        console.log('success');
+      })
+      .fail(function(){
+        console.log('error')
+      });
+    };
   });
