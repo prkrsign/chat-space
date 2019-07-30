@@ -53,13 +53,18 @@ $(document).on('turbolinks:load', function(){
     var reloadMessages = function(){
       last_message_id = $('.messages:last').data('id');
       $.ajax({
-        url: '/groups/:group_id/api/messages(@new_message)',
+        url:  location.href.json,
         type: 'get',
         dataType: 'json',
         data: {id: last_message_id}
       })
       .done(function(messages){
-        console.log('success');
+        var insertHTML='';
+        messages.forEach(function(message){
+          insertHTML = buildHTML(message);
+          $('.message').append(insertHTML)
+          ScrollToNewMessage();
+        });
       })
       .fail(function(){
         console.log('error')
