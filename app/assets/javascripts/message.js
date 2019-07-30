@@ -69,5 +69,6 @@ $(document).on('turbolinks:load', function(){
       .fail(function(){
         console.log('error')
       });
+      setInterval(reloadMessages, 5000);
     };
   });
