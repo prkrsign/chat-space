@@ -50,6 +50,7 @@ $(document).on('turbolinks:load', function(){
 
       // ここから自動更新機能
       var reloadMessages = function(){
+      if (window.location.href.match(/\/groups\/\d+\/messages/)){
       var href = 'api/messages#index {:format=>"json"}'
       var last_message_id = $('.message:last').data('message-id');
       
@@ -73,5 +74,6 @@ $(document).on('turbolinks:load', function(){
         alert("自動更新に失敗しました")
       });
     };
+  };
   setInterval(reloadMessages, 5000);
 });
