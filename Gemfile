@@ -69,3 +69,7 @@ gem 'carrierwave'
 group :test do
   gem 'faker'
 end
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
