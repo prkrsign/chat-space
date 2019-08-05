@@ -1,11 +1,3 @@
-# config valid for current version and patch releases of Capistrano
-lock "~> 3.11.0"
-
-set :application, "my_app_name"
-set :repo_url, "git@example.com:me/my_repo.git"
-
-server '13.112.207.128', user: 'ec2-user', roles: %w{app db web}
-
 # config valid only for current version of Capistrano
 # capistranoのバージョンを記載。固定のバージョンを利用し続け、バージョン変更によるトラブルを防止する
 lock '3.11.0'
