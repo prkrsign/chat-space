@@ -50,10 +50,11 @@ $(document).on('turbolinks:load', function(){
 
       // ここから自動更新機能
       var reloadMessages = function(){
-      if (window.location.href.match(/\/groups\/\d+\/messages/)){
-      var href = 'api/messages#index {:format=>"json"}'
-      var last_message_id = $('.message:last').data('message-id');
+      if (window.location.href.match(/\/groups\/\d+\/messages/)){    // group/:group_id/messagesというURLの時だけ、以降の記述が実行されます。
+      var href = 'api/messages#index {:format=>"json"}'              // リクエスト先と形式を指定しています。
+      var last_message_id = $('.message:last').data('message-id');   // カスタムデータ属性を利用して、最新のメッセージIDを取得しています。
       
+      // ajaxの形式をそれぞれ指定しています。
       $.ajax({
         url:  href,
         type: 'GET',
@@ -62,7 +63,7 @@ $(document).on('turbolinks:load', function(){
       })
       
 
-      .done(function(messages){
+      .done(function(messages){        // フォームに入力されたデータを引数として取得しています。
         var insertHTML='';
           messages.forEach(function(message){
             insertHTML = buildHTML(message);
