@@ -64,6 +64,7 @@ gem 'pry-byebug'
 gem 'pry-doc'
 gem 'mini_magick'
 gem 'carrierwave'
+gem 'fog-aws'
 
 
 group :test do
